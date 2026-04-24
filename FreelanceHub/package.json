@@ -1,0 +1,7 @@
+{
+  "name": "freelancehub-fullstack",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix server start"
+  }
+}
