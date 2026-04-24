@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelanceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topbar topbar-minimal">
+        <div class="container topbar_inner">
+            <h1 class="brand_title">FreelanceHub</h1>
+
+            <div class="controls" role="search" aria-label="Search and sort services">
+                <label class="field">
+                    <span class="field_label">Search</span>
+                    <input type="text" id="searchInput" class="input" placeholder="Search services..." autocomplete="off">
+                </label>
+                <label class="field">
+                    <span class="field_label">Sort</span>
+                    <select id="sortSelect" class="select">
+                        <option value="default">Recommended</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="rating-high">Rating: High to Low</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main class="container layout">
+        <section id="services-section" class="panel">
+            <div class="panel_header">
+                <div>
+                    <h2 class="panel_title">Available gigs</h2>
+                    <p class="panel_hint" id="resultsHint">Loading services...</p>
+                </div>
+                <div class="panel_actions">
+                    <button class="btn btn-ghost" id="resetBtn" type="button">Reset</button>
+                </div>
+            </div>
+
+            <div class="filters" aria-label="Filters">
+                <label class="field field-compact">
+                    <span class="field_label">Category</span>
+                    <select id="categoryFilter" class="select">
+                        <option value="all">All</option>
+                    </select>
+                </label>
+                <label class="field field-compact">
+                    <span class="field_label">Min price</span>
+                    <input id="priceMin" class="input" type="number" min="0" step="1" placeholder="0">
+                </label>
+                <label class="field field-compact">
+                    <span class="field_label">Max price</span>
+                    <input id="priceMax" class="input" type="number" min="0" step="1" placeholder="1000">
+                </label>
+                <label class="field field-compact">
+                    <span class="field_label">Min rating</span>
+                    <select id="ratingMin" class="select">
+                        <option value="0">Any</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                        <option value="4.5">4.5+</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="services-container" class="grid-container" aria-live="polite"></div>
+        </section>
+
+        <aside id="dashboard" class="panel panel-aside" aria-label="Dashboard">
+            <div class="panel_header">
+                <div>
+                    <h2 class="panel_title">Dashboard</h2>
+                    <p class="panel_hint">Tip: drag a gig card into a zone, or use buttons.</p>
+                </div>
+            </div>
+
+            <div class="drop-grid" aria-label="Drop zones">
+                <div class="drop-zone" id="save-zone" tabindex="0" aria-label="Drop here to save">
+                    <h3 class="drop-zone_title">Save</h3>
+                    <p class="drop-zone_subtitle">Keep for later</p>
+                </div>
+                <div class="drop-zone drop-zone-accent" id="hire-zone" tabindex="0" aria-label="Drop here to hire">
+                    <h3 class="drop-zone_title">Hire</h3>
+                    <p class="drop-zone_subtitle">Start immediately</p>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat_label">Saved</div>
+                    <div class="stat_value" id="savedCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat_label">Hired</div>
+                    <div class="stat_value" id="hiredCount">0</div>
+                </div>
+            </div>
+
+            <div id="user-stats" class="lists" aria-label="Saved and hired lists">
+                <div class="list">
+                    <h3 class="list_title">Saved</h3>
+                    <ul id="saved-list" class="list_items"></ul>
+                    <p class="empty" id="saved-empty">No saved items yet.</p>
+                </div>
+                <div class="list">
+                    <h3 class="list_title">Hired</h3>
+                    <ul id="hired-list" class="list_items"></ul>
+                    <p class="empty" id="hired-empty">No hires yet.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" type="button" aria-label="Close details">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-relevant="additions"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
