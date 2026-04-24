@@ -1,0 +1,5 @@
+[
+  { "id": 1, "title": "Logo Design", "category": "Design", "price": 50, "rating": 4.8, "description": "Professional logo design for your brand." },
+  { "id": 2, "title": "Web Development", "category": "Tech", "price": 500, "rating": 4.9, "description": "Full-stack website using React and Node." },
+  { "id": 3, "title": "SEO Optimization", "category": "Marketing", "price": 150, "rating": 4.5, "description": "Rank your website on the first page." }
+]
